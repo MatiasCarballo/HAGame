@@ -1,20 +1,26 @@
 extends Node
 
-const SAVE_PATH := "res://data/user_data.json"
+const SAVE_PATH := "user://user_data.json"
 var user_data := {}
 
-func _ready():
+func _ready():#cambiar esto, tiene que recargar todas las DDBB (user,tank,peces)
 	load_data()
 
 func load_data():
-	if not FileAccess.file_exists(SAVE_PATH):
+	var idUser = UUID.generator()
+	var idTank = UUID.generator()
+	if not FileAccess.file_exists(SAVE_PATH):#luego esto cambiarlo cuando inicia secion 
+		TankData.createTank(idTank)
 		print("📝 Archivo de datos no existe. Creando uno nuevo...")
 		user_data = {
 			"user": "00",
-			"_id": "00",
+			"_id": idUser,
 			"money": "00000",
-			"fishes": []
-		}
+			"fishes": [],
+			"tanks":{
+				"Tank0": idTank
+				}
+			}
 		save_data()
 	else:
 		var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
@@ -26,20 +32,21 @@ func load_data():
 			user_data = parsed
 		else:
 			print("❌ Error al leer JSON. Generando nuevo archivo.")
-			user_data = {
-				"user": "00",
-				"_id": "00",
-				"money": "00000",
-				"fishes": []
-			}
+			# user_data = {
+			# 	"user": "00",
+			# 	"_id": id,
+			# 	"money": "00000",
+			# 	"fishes": []
+			# }
 			save_data()
 
-func save_data():
-	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
-	file.store_string(JSON.stringify(user_data, "\t"))
-	file.close()
+func newTank():
+	var idTank = UUID.generator()
+	var nameTank = TankData.createTank(idTank)
+	var fishes = user_data["tanks"]
 
-func add_fish(raza: String):
+func newFish(raza: String, money ):#luego esto se hara una func mas grande, controlando los peces y su calidad 
+	var idTank = UUID.generator()
 	var fishes = user_data["fishes"]
 	var nuevo_id = str(fishes.size())
 	fishes.append({
@@ -47,3 +54,8 @@ func add_fish(raza: String):
 		"raza": raza
 	})
 	save_data()
+
+func save_data():
+	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	file.store_string(JSON.stringify(user_data, "\t"))
+	file.close()

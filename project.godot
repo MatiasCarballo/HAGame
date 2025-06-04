@@ -18,6 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 UserData="*res://data/UserData.gd"
+TankData="*res://data/TankData.gd"
+FishData="*res://data/FishData.gd"
+UUID="*res://data/UUID.gd"
 
 [display]
 
