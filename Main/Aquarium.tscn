@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://tsxf7gty7xpi"]
+
+[ext_resource type="PackedScene" uid="uid://6b08ssqyrfr6" path="res://world/Tank.tscn" id="1_1ymt6"]
+[ext_resource type="Script" uid="uid://d1lr740pewgy1" path="res://Main/Aquarium.gd" id="1_b5a37"]
+[ext_resource type="PackedScene" uid="uid://b8kqi6amcjutu" path="res://UI/UiControlGame.tscn" id="1_id14s"]
+
+[node name="Aquarium" type="Node2D"]
+script = ExtResource("1_b5a37")
+
+[node name="Tank" parent="." instance=ExtResource("1_1ymt6")]
+
+[node name="UiControlGame" parent="." instance=ExtResource("1_id14s")]
+offset_left = -2.0
+offset_top = 534.0
+offset_right = -2.0
+offset_bottom = 534.0
+size_flags_horizontal = 6

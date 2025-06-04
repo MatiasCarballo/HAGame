@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://6b08ssqyrfr6"]
+
+[ext_resource type="Script" uid="uid://6tewwfwcbymn" path="res://world/tank.gd" id="1_cgajx"]
+[ext_resource type="Texture2D" uid="uid://c8chdsar4e82c" path="res://world/tank.jpg" id="2_gwe8v"]
+[ext_resource type="PackedScene" uid="uid://bv1e3mds7a3ay" path="res://Fishes/Fishes.tscn" id="3_gwe8v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgajx"]
+size = Vector2(1314, 766)
+
+[node name="Tank" type="Node2D"]
+script = ExtResource("1_cgajx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(649, 367)
+shape = SubResource("RectangleShape2D_cgajx")
+
+[node name="Tank" type="Sprite2D" parent="."]
+position = Vector2(643, 349)
+scale = Vector2(1.43506, 1.32169)
+texture = ExtResource("2_gwe8v")
+
+[node name="Fishes" parent="." instance=ExtResource("3_gwe8v")]
+
+[connection signal="input_event" from="Area2D" to="." method="_on_tank_area_input_event"]

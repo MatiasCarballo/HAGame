@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://iserbwnsd5kn"]
+
+[ext_resource type="Script" uid="uid://b5g7gctvn2qof" path="res://UI/MainMenu.gd" id="1_uahxu"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_uahxu")
+
+[node name="jugar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 632.0
+offset_top = 263.0
+offset_right = 744.0
+offset_bottom = 307.0
+text = "Empezar"
+
+[connection signal="pressed" from="jugar" to="." method="_on_BotonJugar_pressed"]

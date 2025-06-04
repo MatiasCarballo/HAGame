@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4msdipf8dnmp"]
+
+[ext_resource type="Script" uid="uid://bl7c5fa5xjcy3" path="res://Fishes/GoldenFish/GoldenFish.gd" id="1_gquii"]
+[ext_resource type="Texture2D" uid="uid://cut2tovrj1dvq" path="res://Fishes/GoldenFish/bitmap.png" id="2_3l0n7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_11hvl"]
+radius = 22.0
+height = 86.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj8i"]
+radius = 28.0
+height = 112.0
+
+[sub_resource type="Animation" id="Animation_ffj8i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_11hvl"]
+resource_name = "idel"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.366667, 0.533333, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y80qj"]
+_data = {
+&"RESET": SubResource("Animation_ffj8i"),
+&"idel": SubResource("Animation_11hvl")
+}
+
+[node name="GoldenFish" type="CharacterBody2D"]
+script = ExtResource("1_gquii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_11hvl")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="areaTap" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ffj8i")
+debug_color = Color(0.938482, 1.34766e-05, 0.623505, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-16, 4)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_3l0n7")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+&"": SubResource("AnimationLibrary_y80qj")
+}
+
+[connection signal="input_event" from="Area2D" to="." method="_on_tap"]
