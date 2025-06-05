@@ -1,0 +1,20 @@
+[
+  {
+    "raza":"GoldenFish",
+    "tier":"common",
+    "mood":20,
+    "price":10
+  },
+  {
+    "raza":"DarkFish",
+    "tier":"common",
+    "mood":20,
+    "price":100
+  },
+  {
+    "raza":"GodenFish1",
+    "tier":"common",
+    "mood":20,
+    "price":10
+  }
+]

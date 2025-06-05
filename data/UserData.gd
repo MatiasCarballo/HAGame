@@ -14,7 +14,7 @@ func load_data():
 		print("📝 Archivo de datos no existe. Creando uno nuevo...")
 		user_data = {
 			"user": "00",
-			"_id": idUser,
+			"id": idUser,
 			"money": "00000",
 			"fishes": [],
 			"tanks":{
@@ -45,15 +45,15 @@ func newTank():
 	var nameTank = TankData.createTank(idTank)
 	var fishes = user_data["tanks"]
 
-func newFish(raza: String, money ):#luego esto se hara una func mas grande, controlando los peces y su calidad 
-	var idTank = UUID.generator()
-	var fishes = user_data["fishes"]
-	var nuevo_id = str(fishes.size())
-	fishes.append({
-		"_id": nuevo_id,
-		"raza": raza
-	})
-	save_data()
+#func newFish(raza: String, money ):#luego esto se hara una func mas grande, controlando los peces y su calidad 
+	#var idTank = UUID.generator()
+	#var fishes = user_data["fishes"]
+	#var nuevo_id = str(fishes.size())
+	#fishes.append({
+		#"_id": nuevo_id,
+		#"raza": raza
+	#})
+	#save_data()
 
 func save_data():
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
