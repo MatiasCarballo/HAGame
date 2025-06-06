@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgkhla4np6ga2"
-path="res://.godot/imported/imagen-removebg-preview.png-6b9833bc8dce78bfa12fcbc69d71d550.ctex"
+uid="uid://dyroslllntwqe"
+path="res://.godot/imported/BlueFish.png-a79a8f1cbccf3614e53e9665860b7470.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fishes/GoldenFish/imagen-removebg-preview.png"
-dest_files=["res://.godot/imported/imagen-removebg-preview.png-6b9833bc8dce78bfa12fcbc69d71d550.ctex"]
+source_file="res://Fishes/FishBase/assetsFiesh/BlueFish.png"
+dest_files=["res://.godot/imported/BlueFish.png-a79a8f1cbccf3614e53e9665860b7470.ctex"]
 
 [params]
 

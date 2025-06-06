@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cut2tovrj1dvq"
-path="res://.godot/imported/bitmap.png-86850ce59cbf61afcc5c563adee96acc.ctex"
+uid="uid://d0udb7i8cejf2"
+path="res://.godot/imported/GreenFish.png-7cb9dd58eeebd905876a51963d098ac3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fishes/GoldenFish/bitmap.png"
-dest_files=["res://.godot/imported/bitmap.png-86850ce59cbf61afcc5c563adee96acc.ctex"]
+source_file="res://Fishes/FishBase/assetsFiesh/GreenFish.png"
+dest_files=["res://.godot/imported/GreenFish.png-7cb9dd58eeebd905876a51963d098ac3.ctex"]
 
 [params]
 

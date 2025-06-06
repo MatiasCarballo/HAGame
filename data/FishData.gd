@@ -8,6 +8,7 @@ func createFish(data):
 		fish_data = [{
 			"id":data["id"],
 			"name": data["raza"],
+			"raza":data["raza"],
 			"age": time,#fecha
 			"gender":data["gender"],#genero
 			"tier":data["tier"],#calidad
@@ -31,6 +32,7 @@ func createFish(data):
 				{
 					"id":data["id"],
 					"name": data["raza"],
+					"raza":data["raza"],
 					"age": time,#fecha
 					"gender":data["gender"],#genero
 					"tier":data["tier"],#calidad
@@ -39,7 +41,29 @@ func createFish(data):
 				}
 			);
 		save_data()
-  
+
+func getFishes():
+	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
+	var text = file.get_as_text()
+	file.close()
+	var parsed = JSON.parse_string(text)
+	if typeof(parsed) != TYPE_ARRAY:
+		print("❌ Error al leer JSON. Generando nuevo archivo.")
+	else:
+		return parsed
+
+func getFishforId(id: String):
+	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
+	var text = file.get_as_text()
+	file.close()
+	var parsed = JSON.parse_string(text)
+	if typeof(parsed) != TYPE_ARRAY:
+		print("❌ Error al leer JSON. Generando nuevo archivo.")
+	else:
+		for fish in parsed:
+			if fish["id"] == id:
+				return fish
+
 func save_data():
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	file.store_string(JSON.stringify(fish_data, "\t"))

@@ -38,7 +38,6 @@ func createTank(id:String):
 			save_data()
 			return $"Tank{tanks}"
 
-
 func addFish(id: String, raza: String, gender:String):
 	var idFish = UUID.generator()
 	
@@ -84,6 +83,25 @@ func addFish(id: String, raza: String, gender:String):
 							return true
 					
 	return false
+
+func getFish(id:String):
+	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
+	var text = file.get_as_text()
+	file.close()
+	var parsed = JSON.parse_string(text)
+	
+	if typeof(parsed) != TYPE_ARRAY:
+		print("❌ Error al leer JSON. fish.")
+	else:
+		var totalFish = []
+		for tanks in parsed:
+			if tanks["id"] == id:
+				var fishTank = tanks["fishes"]
+				for fish in fishTank:
+					var dataFish = FishData.getFishforId(fish["id"])
+					totalFish.append(dataFish)
+		return totalFish
+
 
 func save_data():
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)

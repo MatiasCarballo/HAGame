@@ -1,21 +1,25 @@
 extends CharacterBody2D
-class_name FishBase 
+#class_name FishBase 
 
 @onready var Sprite2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var tank: Node2D = $".."
 
+@export var texture :Texture2D = load("res://Fishes/FishBase/assetsFiesh/GoldenFish.png")
 @export var speed := 60.0
 @export var change_dir_time := randf_range(2.0, 5.0)  # cada cuántos segundos cambia de dirección
+
 var direction := Vector2.ZERO
 var time_accum := 0.0
 var screen_size := Vector2.ZERO
 
 func _ready():
+	Sprite2d.texture = texture
 	screen_size = get_viewport_rect().size
 	choose_random_direction()
 
 func _physics_process(delta):
+	
 	var tank_node = get_tree().get_root().get_node("Aquarium/Tank")  # o $"../Tank" si está cerca
 	if tank_node.is_calling_fish:
 		move_towards(tank_node.target_position, 0.1)
