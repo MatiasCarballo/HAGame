@@ -5,12 +5,13 @@ var tank_data := []
 
 func createTank(id:String):
   #se crea el tanke cuando es llamada 
+	var time = Time.get_unix_time_from_system()
 	if not FileAccess.file_exists(SAVE_PATH):
 		tank_data = [{
 			"id": id,
 			"name": "Tank0",
 			"capacity": 20,
-			"cleanliness":100,
+			"cleanliness":time,
 			"fishes":[]
 		}]
 		save_data()
@@ -102,6 +103,64 @@ func getFish(id:String):
 					totalFish.append(dataFish)
 		return totalFish
 
+func infoTank(id:String):
+	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
+	var text = file.get_as_text()
+	file.close()
+	var parsed = JSON.parse_string(text)
+	if typeof(parsed) != TYPE_DICTIONARY:
+		print("Error al parcear tank_data")
+	else:
+		#tank_data = parsed
+		for tanks in parsed:
+			if tanks["id"] == id:
+				return tanks
+	pass
+
+
+func hunger(id:String):
+	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
+	var text = file.get_as_text()
+	file.close()
+	var parsed = JSON.parse_string(text)
+	
+	if typeof(parsed) != TYPE_ARRAY:
+		print("❌ Error al leer JSON. fish.")
+	else:
+		var hungerPointPorcent
+		for tanks in parsed:
+			
+			if tanks["id"] == id:
+				var totalFishes = tanks["fishes"].size()
+				var hungerPoint = 0.0 
+				var fishTank = tanks["fishes"]
+				for fish in fishTank:
+					hungerPoint += FishData.hungerFish(fish["id"])
+				hungerPointPorcent = float(((hungerPoint / float(totalFishes * 4))*100)/100)
+				return hungerPointPorcent
+
+func clear(id:String):
+	var time = Time.get_unix_time_from_system()
+	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
+	var text = file.get_as_text()
+	file.close()
+	var parsed = JSON.parse_string(text)
+	
+	if typeof(parsed) != TYPE_ARRAY:
+		print("❌ Error al leer JSON. fish.")
+	else:
+		tank_data = parsed
+		for tanks in tank_data:
+			if tanks["id"] == id:
+				var hour = tanks["cleanliness"]
+				var timeC = int(time - hour)/3600
+				var clearPointTank = clamp(timeC, 0, 12)
+				if clearPointTank == 12 && (hour > (3600*12)):
+					tanks["cleanliness"] = int(hour - (3600*12))
+					save_data()
+				var porcent = float(((float(clearPointTank) / 12.0)*100)/100)
+				print(clearPointTank)
+				return porcent
 
 func save_data():
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)

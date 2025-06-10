@@ -2,6 +2,8 @@ extends Node
 
 const SAVE_PATH := "user://user_data.json"
 var user_data := {}
+var exponent: float = 2.2      # Exponente de crecimiento (difucultad)
+var multiplier: float = 20.0   # Multiplicador base para escalar XP ( xp_next = multiplier * level^exponent)(20*(2^2)=80_exp)
 
 func _ready():#cambiar esto, tiene que recargar todas las DDBB (user,tank,peces)
 	load_data()
@@ -14,8 +16,11 @@ func load_data():
 		print("📝 Archivo de datos no existe. Creando uno nuevo...")
 		user_data = {
 			"user": "00",
+			"exp":0,
 			"id": idUser,
-			"money": "00000",
+			"starsCoins": 0,
+			"perlsCoins": 0, 
+			"stars": 0,
 			"fishes": [],
 			"tanks":{
 				"Tank0": idTank
@@ -29,31 +34,39 @@ func load_data():
 
 		var parsed = JSON.parse_string(text)
 		if typeof(parsed) == TYPE_DICTIONARY:
+			
 			user_data = parsed
+			save_data()
 		else:
 			print("❌ Error al leer JSON. Generando nuevo archivo.")
-			# user_data = {
-			# 	"user": "00",
-			# 	"_id": id,
-			# 	"money": "00000",
-			# 	"fishes": []
-			# }
+
+func editBasicDataUser(key:String, data):
+	match key:
+		"user":
+			user_data["name"] = data["name"]
 			save_data()
+			pass
+		"starsCoins":
+			user_data["starsCoins"] += int(data["starsCoins"])
+			save_data()
+			pass
+		_:
+			print("no valido")
+	pass
 
-func newTank():
-	var idTank = UUID.generator()
-	var nameTank = TankData.createTank(idTank)
-	var fishes = user_data["tanks"]
+func getLevelAndExp()-> Dictionary:
+	var lvl = 1
+	var xp = user_data["exp"]
+	while xp >= calcForLvl(lvl):
+		lvl += 1
+	if xp > 0:
+		var porcent: float = round(float(xp) / float(calcForLvl(lvl))*100)/100
+		return {"lvl":lvl, "porcent":porcent}
+	else:
+		return{"lvl":lvl, "porcent":0}
 
-#func newFish(raza: String, money ):#luego esto se hara una func mas grande, controlando los peces y su calidad 
-	#var idTank = UUID.generator()
-	#var fishes = user_data["fishes"]
-	#var nuevo_id = str(fishes.size())
-	#fishes.append({
-		#"_id": nuevo_id,
-		#"raza": raza
-	#})
-	#save_data()
+func calcForLvl(lvl):
+	return int(ceil(multiplier * pow(lvl, exponent)))
 
 func save_data():
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)

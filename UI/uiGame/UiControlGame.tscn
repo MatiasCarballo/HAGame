@@ -1,0 +1,488 @@
+[gd_scene load_steps=18 format=3 uid="uid://b8kqi6amcjutu"]
+
+[ext_resource type="Script" uid="uid://c3ar2yrjhinrt" path="res://UI/uiGame/UicontrolGame.gd" id="1_5owo2"]
+[ext_resource type="Texture2D" uid="uid://2pamyy263bi0" path="res://UI/uiGame/assets/icon.png" id="2_5xbw8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2wck"]
+atlas = ExtResource("2_5xbw8")
+region = Rect2(928.65, -0.118595, 320.724, 320.724)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_012he"]
+bg_color = Color(2.35841e-06, 0.540892, 0.52979, 0.839216)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hk7b5"]
+bg_color = Color(0, 0.631373, 0.756863, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xbw8"]
+bg_color = Color(0, 0.541176, 0.529412, 0.839216)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_012he"]
+atlas = ExtResource("2_5xbw8")
+region = Rect2(0.133102, -0.325182, 270.281, 316.089)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hk7b5"]
+atlas = ExtResource("2_5xbw8")
+region = Rect2(288.401, -0.551674, 320.119, 290.403)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0yh5"]
+atlas = ExtResource("2_5xbw8")
+region = Rect2(608.817, -0.800411, 320.333, 320.885)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xbw8"]
+atlas = ExtResource("2_5xbw8")
+region = Rect2(7333.13, 7359.92, 320.574, 320.229)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2htfk"]
+bg_color = Color(0, 0.541176, 0.529412, 0.839216)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ty1ep"]
+bg_color = Color(0.890196, 0.6, 0.188235, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcas3"]
+atlas = ExtResource("2_5xbw8")
+region = Rect2(1258.6, -1.06126, 320.662, 320.253)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmbg1"]
+bg_color = Color(0, 0.541176, 0.529412, 0.839216)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ulc4"]
+bg_color = Color(0.352941, 0.890196, 0.4, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2kkt"]
+atlas = ExtResource("2_5xbw8")
+region = Rect2(1890.76, 2.57126, 320.772, 320.773)
+
+[sub_resource type="Theme" id="Theme_wp2nj"]
+
+[node name="UiControlGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -592.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_5owo2")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer/PanelContainer"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.768627, 0.733333, 0.509804, 1)
+
+[node name="TopPanel" type="HBoxContainer" parent="PanelContainer/PanelContainer"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="levelNum" type="PanelContainer" parent="PanelContainer/PanelContainer/TopPanel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_stretch_ratio = 0.0
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer/PanelContainer/TopPanel/levelNum"]
+visible = false
+layout_mode = 2
+color = Color(0.00784314, 1, 1, 1)
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/PanelContainer/TopPanel/levelNum"]
+custom_minimum_size = Vector2(120, 120)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_p2wck")
+expand_mode = 1
+
+[node name="Level" type="Label" parent="PanelContainer/PanelContainer/TopPanel/levelNum"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1.08294e-06, 0.264954, 0.368246, 1)
+theme_override_font_sizes/font_size = 30
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer2" type="VBoxContainer" parent="PanelContainer/PanelContainer/TopPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = -1
+
+[node name="barTop" type="HBoxContainer" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = -1
+
+[node name="barlevel" type="HBoxContainer" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barTop"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/separation = -1
+
+[node name="ProgressBarLevel" type="ProgressBar" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barTop/barlevel"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_012he")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hk7b5")
+max_value = 1.0
+value = 0.5
+show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barTop/barlevel/ProgressBarLevel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = -14.0
+offset_right = 48.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barTop/barlevel/ProgressBarLevel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Exp"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="exp" type="Label" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barTop/barlevel/ProgressBarLevel/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "10000"
+
+[node name="moneys" type="HBoxContainer" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barTop"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = -1
+
+[node name="goldMoney" type="PanelContainer" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barTop/moneys"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="ColorRect" type="Panel" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barTop/moneys/goldMoney"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_5xbw8")
+
+[node name="starsCoins" type="Label" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barTop/moneys/goldMoney/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barTop/moneys/goldMoney"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_012he")
+expand_mode = 5
+
+[node name="perlsMoney" type="PanelContainer" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barTop/moneys"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="ColorRect" type="Panel" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barTop/moneys/perlsMoney"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_5xbw8")
+
+[node name="perlsMoney" type="Label" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barTop/moneys/perlsMoney/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barTop/moneys/perlsMoney"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_hk7b5")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="starsMoney" type="PanelContainer" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barTop/moneys"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="ColorRect" type="Panel" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barTop/moneys/starsMoney"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_5xbw8")
+
+[node name="starsMoney" type="Label" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barTop/moneys/starsMoney/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barTop/moneys/starsMoney"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_m0yh5")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="barbottom" type="HBoxContainer" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Tanks" type="PanelContainer" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barbottom"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="MenuButton" type="MenuButton" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barbottom/Tanks"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Tanks"
+item_count = 3
+popup/item_0/text = "Tanks0"
+popup/item_0/id = 0
+popup/item_1/text = "Tanks1"
+popup/item_1/id = 1
+popup/item_2/text = "Tanks2"
+popup/item_2/id = 2
+popup/item_2/disabled = true
+
+[node name="PanelContainer" type="HBoxContainer" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barbottom/Tanks"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barbottom/Tanks/PanelContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_5xbw8")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barbottom/Tanks/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.442911, 0.442911, 0.442911, 1)
+theme_override_font_sizes/font_size = 20
+text = "5/20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="States" type="PanelContainer" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barbottom"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="food" type="PanelContainer" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barbottom/States"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="ProgressBarHunger" type="ProgressBar" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barbottom/States/food"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_2htfk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ty1ep")
+max_value = 1.0
+value = 0.5
+show_percentage = false
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barbottom/States/food"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_jcas3")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="clean" type="PanelContainer" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barbottom/States"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ProgressBarClear" type="ProgressBar" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barbottom/States/clean"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_mmbg1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4ulc4")
+max_value = 1.0
+value = 0.5
+show_percentage = false
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/PanelContainer/TopPanel/PanelContainer2/barbottom/States/clean"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_w2kkt")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="config" type="PanelContainer" parent="PanelContainer/PanelContainer/TopPanel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_stretch_ratio = 0.0
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer/PanelContainer/TopPanel/config"]
+layout_mode = 2
+color = Color(0.00784314, 1, 1, 1)
+
+[node name="BottomPanel" type="PanelContainer" parent="PanelContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer/BottomPanel"]
+layout_mode = 2
+color = Color(1, 0.309804, 1, 1)
+
+[node name="Panel" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 154.0
+offset_top = 177.0
+offset_right = 239.0
+offset_bottom = 249.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.313726
+anchor_top = -0.377049
+anchor_right = 0.703925
+anchor_bottom = 0.704921
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_wp2nj")
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "agregar"
+
+[node name="Label2" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "comida"
+
+[connection signal="pressed" from="Panel/VBoxContainer/Label" to="." method="_on_add_fish"]
+[connection signal="pressed" from="Panel/VBoxContainer/Label2" to="." method="_on_add_food_fish"]

@@ -20,6 +20,7 @@ func _on_add_fish_requested():
 	fishes.spawn_fishes("GoldenFish")
 
 func _on_tank_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+
 	if event is InputEventMouseButton and event.pressed:
 		if tap_consumido:
 			tap_consumido = false  # Resetear para la próxima vez

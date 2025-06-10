@@ -36,7 +36,7 @@ func _physics_process(delta):
 	if new_position.x < 0 or new_position.x > screen_size.x:
 		direction.x *= -1
 		Sprite2d.flip_h = direction.x < 0
-	if new_position.y < 0 or new_position.y > screen_size.y:
+	if new_position.y < 140 or new_position.y > screen_size.y:
 		direction.y *= -1
 	position += direction * speed * delta
 
@@ -52,7 +52,7 @@ func move_towards(point: Vector2, strength: float = 0.5):
 	direction = direction.lerp(dir_to_point, strength).normalized()
 	Sprite2d.flip_h = direction.x < 0
 
-func _on_tap(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_tap(viewport: Node, event: InputEvent, shape_idx: int) -> void:##ARREGLAR
 	if event is InputEventMouseButton and event.pressed:
 		print("¡Tocaste al pez!")
 		get_tree().get_root().get_node("Aquarium/Tank").tap_consumido = true  # <- Esto evita que llegue al tanque
